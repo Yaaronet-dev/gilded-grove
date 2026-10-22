@@ -220,6 +220,9 @@ canvas.addEventListener("click", toggle);
 toggleBtn.addEventListener("click", toggle);
 if (location.hash === "#open") { toggle(); length = OPEN; }
 
+// read-only state for tests
+window.__roll = { get length() { return length; }, get isOpen() { return isOpen; }, get rotationY() { return root.rotation.y; } };
+
 function resize() {
   const { clientWidth: w, clientHeight: h } = canvas.parentElement;
   renderer.setSize(w, h, false);
